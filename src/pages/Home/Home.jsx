@@ -1,9 +1,11 @@
+import { useState, useEffect } from "react";
+
 import { Card } from "../../assets/components/Cards/Card";
 import { Navbar } from "../../assets/components/Navbar/Navbar";
 // import { news } from "../../Datas";
 import { getAllPosts } from "../../services/postServices";
 import { HomeBody } from "./HomeStyle";
-import { useState } from "react";
+
 
 export default function Home() {
   const [news, setNews] = useState([]);
@@ -13,7 +15,9 @@ export default function Home() {
     setNews(response.data.results);
   }
 
-  //findAllPosts();
+  useEffect(() => {
+    findAllPosts();
+  }, []);
 
   return (
     <>
